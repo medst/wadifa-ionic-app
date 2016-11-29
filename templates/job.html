@@ -1,0 +1,13 @@
+<ion-view cache-view="false" view-title="">
+  <ion-nav-title>
+    <span style="float: right;margin-right: 2px;">
+    	وظيفة
+    </span>
+  </ion-nav-title>
+  <ion-content>
+  	<div style="direction: rtl;" ng-bind-html="title"></div>
+  	<p class="item" ng-bind-html="pubd"></p><br>
+    <ion-spinner icon="lines" style="margin-left: 47%;" ng-show="load"></ion-spinner>
+    <div style="direction: rtl;" ng-bind-html="html | hrefToJS"></div>
+  </ion-content>
+</ion-view>

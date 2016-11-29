@@ -1,0 +1,13 @@
+<ion-view cache-view="false" view-title="مفضلة">
+  <ion-content>
+    <div class="list">
+	    <a class="item item-thumbnail-right" ng-repeat="job in $storage.jobs | reverse" ng-click="open(job)">
+	      <img ng-src="{{job[3]}}">
+	      <h2>{{job[1]}}</h2>
+	      <p>{{job[2]}}</p>
+	      <img ng-src="img/rate.png" height="15px" width="15px">
+	      <p am-time-ago="job[4]"></p>
+	    </a>
+	</div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view view-title="وظائف">
+  <ion-content>
+    <div class="list">
+    	<div class="item item-divider">
+	    	<label class="item item-input item-select" style="height: 40px;">
+			    <select ng-change="update(jobType)" ng-model="jobType">
+			        <option value="0" selected="true">الوظيفة العمومية</option>
+			        <option value="1">القطاع الخاص</option>
+			        <option value="2">العمل بالخارج</option>
+			        <option value="3">المباريات المهنية</option>
+			        <option value="4">نماذج المباريات</option>
+			        <option value="5">مستجدات</option>
+			    </select>	
+			</label>
+	  	</div>
+	    <a class="item item-thumbnail-right" ng-repeat="job in jobs track by $index" ng-click="open($index)">
+	      <img ng-src="{{job.thumbnail._url}}">
+	      <h2>{{job.title}}</h2>
+	      <p>{{job.description}}</p>
+	      <img ng-src="img/rate.png" height="15px" width="15px" ng-show="israte($index)">
+	      <img ng-src="img/norate.png" height="15px" width="15px" ng-hide="israte($index)">
+	      <p am-time-ago="job.pubDate"></p>
+	    </a>
+	</div>
+	<ion-infinite-scroll spinner="lines" ng-if="more" on-infinite="loadOldFeed(jobType)" distance="10%">
+	</ion-infinite-scroll>
+  </ion-content>
+</ion-view>
